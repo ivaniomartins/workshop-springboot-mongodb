@@ -34,11 +34,11 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getNamne() {
+	public String getName() {
 		return name;
 	}
 
-	public void setNamne(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
