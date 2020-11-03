@@ -39,7 +39,7 @@ public class Instantiation implements CommandLineRunner {
 		userRepository.saveAll(Arrays.asList(maria, alex, bob));
 		/*
 		 * PARA QUE SEJA POSSIVEL ATRIBUIR UM AUTOR AO POST, É PRECISO PRIMEIRO QUE O
-		 * USUARIO (USER), QUE É UM AUTOR SEJA SALVO, PARA ENTÃO INSTANCIAR OS POST,
+		 * USUARIO (USER), QUE É UM AUTOR SEJA SALVO, PARA ENTÃO INSTANCIAR OS POSTS,
 		 * CASO CONTRÁRIO O ID DO AUTOR FICARÁ COMO NULL.
 		 */
 
@@ -50,6 +50,9 @@ public class Instantiation implements CommandLineRunner {
 
 		postRepository.saveAll(Arrays.asList(post1, post2));
 
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+
+		userRepository.save(maria);
 	}
 
 }
