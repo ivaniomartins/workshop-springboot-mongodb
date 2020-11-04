@@ -1,13 +1,12 @@
 package com.martins.workshopmongodb.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.martins.workshopmongodb.domain.Post;
-import com.martins.workshopmongodb.domain.User;
-import com.martins.workshopmongodb.dto.UserDTO;
 import com.martins.workshopmongodb.repository.PostRepository;
 import com.martins.workshopmongodb.services.exception.ObjectNotFoundException;
 
@@ -22,9 +21,8 @@ public class PostService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 
-
-
-public User fromDTO(UserDTO objDto) {
-	  return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
-  }
+public List<Post> findBytitle(String text){
+	return repo.findByTitleContaining(text);
+}
+	
 }
